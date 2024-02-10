@@ -38,6 +38,7 @@ input.input-control{
 /* BUTTONS */
 .btn--primary{
     @apply 
+    inline-flex
     bg-primary
     bg-opacity-[0.63]
     px-8
@@ -49,4 +50,162 @@ input.input-control{
     transition-all
     duration-300
     hover:bg-opacity-100
+}
+
+/* LIST */
+.list-check{
+    @apply flex flex-col gap-2 mb-5
+}
+.list-check li{
+    @apply 
+    ps-7
+    relative
+
+    before:content-['']
+    before:w-6
+    before:min-w-6
+    before:h-6
+    before:bg-transparent
+    before:inline-flex
+    before:items-center
+    before:justify-center
+    before:left-0
+    before:absolute
+    before:top-1
+    before:bg-[url('../img/check.svg')]
+}
+
+/* PRICE */
+.price sup{
+    @apply
+    font-thin
+    text-[20px]
+    2xl:text-[32px]
+    text-[#970404]    
+}
+.price .price--amount{
+    @apply 
+    text-[36px] 
+    2xl:text-[64px]
+    leading-[1]
+    font-medium
+}
+
+/* HEADER */
+.header{
+    @apply absolute
+    start-0
+    end-0
+    top-0
+    z-[98]
+    pt-[30px] 
+    md:pt-[40px]
+}
+
+.navbar-nav{
+    @apply
+    flex
+    justify-center
+    items-center
+    gap-[15px]
+}
+.navbar-nav .nav-link{
+    @apply
+    text-white
+    text-opacity-75
+    text-[14px] 2xl:text-[18px]
+    font-medium
+    relative
+    py-3
+
+    before:content-['']
+    before:bottom-0
+    before:start-0
+    before:w-0
+    before:h-[2px]
+    before:bg-white
+    before:absolute
+    before:z-[-1]
+    before:transition-all
+    before:duration-300
+}
+.navbar-nav .nav-item{
+    @apply
+    z-[1]
+    px-3 2xl:px-6
+    py-1
+}
+.navbar-nav .nav-item:hover .nav-link,
+.navbar-nav .nav-item.active .nav-link{
+    @apply
+    text-opacity-100
+    before:w-full
+}
+
+.header .menu--toggler{
+    @apply
+    inline-flex 2xl:hidden
+    flex-col
+    gap-[7px]
+}
+
+.header .menu--toggler span.bar{
+    @apply
+    w-[26px]
+    h-[1px]
+    bg-white
+}
+
+/* Offcanvas */
+.offcanvas{
+    @apply
+    p-[30px]
+    fixed
+    top-0
+    -end-[330px]
+    bg-[#101010]
+    shadow-lg
+    w-[320px]
+    max-w-[calc(100%-50px)]
+    h-screen
+    overflow-x-hidden
+    z-[99]
+    transition-all
+    duration-300
+    flex
+    flex-col
+    gap-3
+    2xl:hidden
+}
+
+.open-offcanvas {
+    @apply
+    overflow-hidden
+}
+.open-offcanvas .offcanvas{
+    @apply
+    end-0
+}
+.open-offcanvas .offcanvas-overlay{
+    @apply
+    fixed 
+    2xl:hidden
+    top-0
+    start-0
+    end-0
+    bottom-0
+    bg-black
+    bg-opacity-75
+    z-[98]
+}
+
+.offcanvas .navbar-nav{
+    @apply
+    flex-col
+    items-start
+}
+.offcanvas .navbar-nav .nav-item{
+    @apply
+    ps-0
+    py-2
 }
