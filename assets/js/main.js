@@ -25,7 +25,7 @@ class Theme {
     setupSVGIcon() {
         function createSVGIcon(iconName) {
             // Define the base path for the SVG icons
-            const basePath = 'assets/svg/icons/';
+            const basePath = '../svg/icons/';
 
             // Construct the file path for the provided icon name
             const filePath = `${basePath}${iconName}.svg`;
