@@ -15,12 +15,49 @@ class Theme {
                     menuOverlay.classList.add('show');
                 });
             });
+    
             menuOverlay.addEventListener('click', function(){
                 document.body.classList.remove('open-offcanvas');
                 menuOverlay.classList.remove('show');
-            })
+            });
         }
+    
+        // STICKY HEADER
+        const header = document.querySelector(".sticky-header");
+        if(header){
+            const toggleClass = "is-sticky";
+    
+            window.addEventListener("scroll", () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 300) {
+                    header.classList.add(toggleClass);
+                } else {
+                    header.classList.remove(toggleClass);
+                }
+            });
+        }
+    
+        // Scroll Spy
+        let sec = document.querySelectorAll('section');
+        let links = document.querySelectorAll('.nav-link');
+
+        window.onscroll = () => {
+        sec.forEach(section => {
+            let top = window.scrollY;
+            let offset = section.offsetTop - 60;
+            let height = section.offsetHeight;
+            let id = section.getAttribute('id');
+
+            if(top >= offset && top < offset + height){
+            links.forEach(link => {
+                link.classList.remove('active');
+                document.querySelector('.nav-link[href*=' + id + ']').classList.add('active');
+            })
+            }
+        })
+        };
     }
+    
     
     setupSVGIcon() {
         function createSVGIcon(iconName) {
